@@ -134,3 +134,370 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger - MR SURAJ</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Roboto:wght@400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            /* Background Image (Aap yaha apni pasand ka link daal sakte hain) */
+            background-image: url('https://images.alphacoders.com/132/1328962.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Dark overlay for background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .form-box {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(20, 10, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            text-align: center;
+            color: #e0e0e0;
+            margin-bottom: 2px;
+        }
+
+        input[type="text"], 
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 15px;
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input[type="text"]:focus, 
+        input[type="number"]:focus {
+            border-color: #4da6ff;
+            box-shadow: 0 0 5px rgba(77, 166, 255, 0.5);
+        }
+
+        /* File Input Styling */
+        .file-input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid white;
+            border-radius: 8px;
+            overflow: hidden;
+            background: transparent;
+            height: 40px;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .file-input-wrapper .file-label {
+            background: transparent;
+            color: white;
+            padding: 0 15px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid white;
+        }
+
+        .file-input-wrapper .file-name {
+            padding: 0 15px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            color: #ccc;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-run {
+            background-color: #007bff;
+            margin-top: 5px;
+        }
+
+        .btn-run:hover { background-color: #0056b3; }
+        .btn-run:disabled { background-color: #555; cursor: not-allowed; }
+
+        .btn-stop {
+            background-color: #dc3545;
+            margin-top: 5px;
+        }
+
+        .btn-stop:hover { background-color: #c82333; }
+
+        /* Status Message */
+        .status-msg {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            margin-top: 5px;
+            height: 15px;
+            color: #00ffcc;
+        }
+
+        /* Footer Section */
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            font-family: 'Roboto', sans-serif;
+            color: #bbb;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .footer .dev-by { color: #888; font-weight: 500; letter-spacing: 1px; }
+        .footer .name-tag { font-style: italic; font-weight: 600; color: #ccc; letter-spacing: 1px; }
+        .footer .fb-link { color: #007bff; text-decoration: underline; word-break: break-all; }
+
+        .whatsapp-btn {
+            color: #25D366;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .whatsapp-btn:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header-title">Messenger</div>
+
+        <div class="form-box">
+            <!-- Hater Name -->
+            <div class="input-group">
+                <label>Enter Your Hater Name</label>
+                <input type="text" id="haterName" placeholder="Enter name here...">
+            </div>
+
+            <!-- Time -->
+            <div class="input-group">
+                <label>Enter Time (seconds)</label>
+                <input type="number" id="timeSeconds" placeholder="e.g. 10">
+            </div>
+
+            <!-- File Upload -->
+            <div class="input-group">
+                <label>Choose File</label>
+                <div class="file-input-wrapper">
+                    <label class="file-label" for="file-upload">Choose File</label>
+                    <input id="file-upload" type="file" onchange="updateFileName(this)">
+                    <span class="file-name" id="file-name-display">No file chosen</span>
+                </div>
+            </div>
+
+            <!-- Run Button -->
+            <button class="btn btn-run" id="runBtn" onclick="startTask()">Run</button>
+            
+            <!-- Status Message -->
+            <div class="status-msg" id="statusMsg"></div>
+
+            <!-- Task ID -->
+            <div class="input-group" style="margin-top: 5px;">
+                <label>Enter Task ID to Stop</label>
+                <input type="text" id="taskIdInput" placeholder="Task ID...">
+            </div>
+
+            <!-- Stop Button -->
+            <button class="btn btn-stop" onclick="stopTask()">Stop</button>
+        </div>
+
+        <!-- Footer Area -->
+        <div class="footer">
+            <div class="dev-by">© 2025 DEVELOPED BY Mᴿ SURAJ DEPLOY WER</div>
+            <div class="name-tag">MR SURAJ INSIDE HERE</div>
+            <a href="https://www.facebook.com/share/1HB3oiE38YU/" target="_blank" class="fb-link">https://www.facebook.com/share/1HB3oiE38YU/</a>
+            <a href="https://wa.me/" target="_blank" class="whatsapp-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.031 2C6.502 2 2.015 6.488 2.015 12.017C2.015 13.781 2.476 15.438 3.276 16.88L2.015 22L7.266 20.767C8.648 21.508 10.211 21.943 11.873 21.943H12.033C17.561 21.943 22.049 17.455 22.049 11.926C22.049 6.398 17.561 2 12.031 2ZM17.327 16.488C17.106 17.117 16.143 17.652 15.653 17.702C15.148 17.755 14.546 17.882 12.332 16.986C9.638 15.898 7.905 13.108 7.777 12.938C7.649 12.767 6.745 11.571 6.745 10.332C6.745 9.093 7.379 8.487 7.625 8.225C7.871 7.963 8.163 7.897 8.345 7.897C8.528 7.897 8.711 7.897 8.868 7.905C9.037 7.913 9.263 7.866 9.486 8.411C9.716 8.973 10.278 10.285 10.342 10.416C10.407 10.547 10.448 10.703 10.36 10.873C10.272 11.044 10.224 11.146 10.099 11.292C9.974 11.438 9.841 11.605 9.734 11.712C9.609 11.837 9.476 11.971 9.627 12.223C9.778 12.474 10.277 13.285 11.013 13.94C11.953 14.777 12.734 15.042 13.018 15.175C13.232 15.275 13.499 15.252 13.664 15.084C13.875 14.869 14.126 14.502 14.381 14.14C14.561 13.888 14.786 13.851 15.018 13.936C15.255 14.019 16.529 14.653 16.789 14.782C17.049 14.911 17.219 14.973 17.275 15.076C17.332 15.179 17.332 15.596 17.327 16.488Z"/>
+                </svg>
+                Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript for Working Buttons -->
+    <script>
+        let taskInterval;
+        let isRunning = false;
+
+        // File input change function
+        function updateFileName(input) {
+            const displaySpan = document.getElementById('file-name-display');
+            if (input.files && input.files.length > 0) {
+                displaySpan.textContent = input.files[0].name;
+                displaySpan.style.color = "#fff";
+            } else {
+                displaySpan.textContent = "No file chosen";
+                displaySpan.style.color = "#ccc";
+            }
+        }
+
+        // Run Button Logic
+        function startTask() {
+            if (isRunning) return;
+
+            const name = document.getElementById('haterName').value;
+            const time = document.getElementById('timeSeconds').value;
+            const file = document.getElementById('file-upload').files.length;
+            const statusMsg = document.getElementById('statusMsg');
+            const runBtn = document.getElementById('runBtn');
+
+            // Validation check
+            if (!name || !time || file === 0) {
+                statusMsg.style.color = "#ff4d4d";
+                statusMsg.innerText = "Please fill all fields and choose a file!";
+                return;
+            }
+
+            // Generate Random Task ID
+            const taskId = "TASK-" + Math.floor(Math.random() * 90000 + 10000);
+            document.getElementById('taskIdInput').value = taskId;
+
+            // Update UI
+            isRunning = true;
+            runBtn.disabled = true;
+            runBtn.innerText = "Running...";
+            statusMsg.style.color = "#00ffcc";
+            
+            let timeLeft = parseInt(time);
+            statusMsg.innerText = `Task Started! ID: ${taskId} | Time Left: ${timeLeft}s`;
+
+            // Timer Logic
+            taskInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    statusMsg.innerText = `Task Running... ID: ${taskId} | Time Left: ${timeLeft}s`;
+                } else {
+                    clearInterval(taskInterval);
+                    statusMsg.style.color = "#00ffcc";
+                    statusMsg.innerText = `Task ${taskId} Completed Successfully!`;
+                    resetRunButton();
+                }
+            }, 1000);
+        }
+
+        // Stop Button Logic
+        function stopTask() {
+            const statusMsg = document.getElementById('statusMsg');
+            const taskIdInput = document.getElementById('taskIdInput').value;
+
+            if (!isRunning) {
+                statusMsg.style.color = "#ff4d4d";
+                statusMsg.innerText = "No task is currently running!";
+                return;
+            }
+
+            if (taskIdInput === "") {
+                statusMsg.style.color = "#ff4d4d";
+                statusMsg.innerText = "Enter a Task ID to stop!";
+                return;
+            }
+
+            // Stop the timer
+            clearInterval(taskInterval);
+            statusMsg.style.color = "#ffcc00";
+            statusMsg.innerText = `Task ${taskIdInput} Stopped by user.`;
+            resetRunButton();
+        }
+
+        // Helper function to reset Run button
+        function resetRunButton() {
+            isRunning = false;
+            const runBtn = document.getElementById('runBtn');
+            runBtn.disabled = false;
+            runBtn.innerText = "Run";
+            document.getElementById('taskIdInput').value = "";
+        }
+    </script>
+</body>
+</html>
