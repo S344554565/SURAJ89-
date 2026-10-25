@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+  <title>MR SURAJ | Control Panel</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="background-glow"></div>  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>MR SURAJ</h1>
+        <p>NEON CONTROL PANEL</p>
+      </div>
+    </div>
+    <span class="status"><span class="dot"></span> ONLINE</span>
+  </header>  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h2>Your Control <span>Center.</span></h2>
+      <p class="subtitle">
+        Welcome to your personal dashboard.
+      </p>
+    </section><section class="stats">
+  <article class="card">
+    <div class="card-icon">◈</div>
+    <p class="label">SYSTEM STATUS</p>
+    <h3 id="systemStatus">Checking...</h3>
+    <p class="small">Server connection</p>
+  </article>
+
+  <article class="card">
+    <div class="card-icon">⌁</div>
+    <p class="label">PLATFORM</p>
+    <h3>Node.js</h3>
+    <p class="small">Express server</p>
+  </article>
+
+  <article class="card">
+    <div class="card-icon">✦</div>
+    <p class="label">DASHBOARD</p>
+    <h3>Active</h3>
+    <p class="small">Interface loaded</p>
+  </article>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">CONTROL CENTER</p>
+      <h2>Quick Actions</h2>
+    </div>
+    <span class="badge">READY</span>
+  </div>
+
+  <div class="actions">
+    <button class="action-btn" id="statusBtn">
+      <span>◉</span>
+      <div>
+        <strong>Check Server</strong>
+        <small>Test server connection</small>
+      </div>
+      <b>→</b>
+    </button>
+
+    <button class="action-btn" id="themeBtn">
+      <span>◐</span>
+      <div>
+        <strong>Change Appearance</strong>
+        <small>Switch neon accent color</small>
+      </div>
+      <b>→</b>
+    </button>
+
+    <button class="action-btn" id="timeBtn">
+      <span>◷</span>
+      <div>
+        <strong>Current Time</strong>
+        <small id="timeText">Show local time</small>
+      </div>
+      <b>→</b>
+    </button>
+  </div>
+
+  <div id="message" class="message" role="status">
+    Panel loaded successfully.
+  </div>
+</section>
+
+<footer>
+  <p>MR SURAJ PANEL <span>•</span> Made for your dashboard</p>
+  <p>All systems ready</p>
+</footer>
+
+  </main>  <script src="/script.js"></script></body>
+</html>
